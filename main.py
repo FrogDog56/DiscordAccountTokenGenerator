@@ -82,6 +82,9 @@ def start():
     def get_button():
         driver.find_element(By.XPATH, "//button[@type='submit']").click() # Changed Method used to find the xpath to the newer, non deprecated method.
 
+    def get_iframe():
+        driver.find_element(By.XPATH, "//iframe[@title='widget containing checkbox for hCaptcha security challenge']").click() #Gets captacha iframe and clicks it
+
     def quit():
         driver.quit()
 
@@ -108,6 +111,8 @@ def start():
     get_date()
     get_checkbox()
     get_button()
+    time.sleep(4) # sleep to wait for captcha to load
+    get_iframe()
 
     # Trys to save token until its succesful.
     token = None
